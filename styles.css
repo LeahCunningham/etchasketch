@@ -1,0 +1,17 @@
+.cell {
+    background-color: aquamarine;
+    color: blueviolet;
+    min-width: 20px;
+    min-height: 35px;
+    display: flex
+}
+
+#container {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
