@@ -40,35 +40,21 @@ fillCells();
 
 const sizeBtn = document.querySelector("button");
 
-function changeSize() {
-
-}
-
 sizeBtn.addEventListener("click", () => {
 
-    try {
-        let userInput = prompt("How many rows and columns do you want?", "Enter a number up to 100");
-        let number = parseInt(userInput);
+    let userInput = prompt("How many rows and columns do you want?", "Enter a number up to 100");
+    let number = parseInt(userInput);
 
-        if (isNaN(number) || number > 100) {
-            throw new Error("Invalid input: Only accepts numbers up to 100.")
-        }
-
-        if (container) {
-            container.replaceChildren();
-            size = number;
-            generateGrid(size);
-            fillCells();
-        }
+    if (isNaN(number) || number > 100) {
+        alert("Invalid input: Only accepts numbers up to 100.")
     }
 
-    catch (error) {
-        alert(error.message);
+    else {
+        container.replaceChildren();
+        size = number;
+        generateGrid(size);
+        fillCells();
     }
-
-
-
-
 }
 )
 
