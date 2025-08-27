@@ -22,17 +22,30 @@ function generateGrid(size) {
 generateGrid(size);
 
 // Function for event listeners for tracking the mouse movements
+let rdmColor = "black"
+
+function randomColorGenerator() {
+  const maxVal = 0xFFFFFF; // 16777215
+  let randomNumber = Math.floor(Math.random() * maxVal);
+  let hexColor = randomNumber.toString(16);
+  // Pad with leading zeros if necessary
+  hexColor = hexColor.padStart(6, '0'); 
+  rdmColor = `#${hexColor.toUpperCase()}`;
+}
 
 function fillCells() {
 
     const cells = document.querySelectorAll(".cell");
 
     cells.forEach((cell) => {
-        cell.addEventListener("mouseenter", (mouseenter) => { mouseenter.target.style.backgroundColor = "black" }
+        cell.addEventListener("mouseenter", (mouseenter) => { 
+            mouseenter.target.style.backgroundColor = rdmColor;
+        randomColorGenerator()}
         )
     }
     );
 }
+
 
 fillCells();
 
