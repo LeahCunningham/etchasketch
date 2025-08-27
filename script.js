@@ -3,35 +3,35 @@
 let size = 16;
 const container = document.querySelector("#container");
 
-function generateGrid(size){
-for (let i = 0; i < size; i++) {
-    const newCol = document.createElement("div");
-    newCol.className = "col";
-
-    container.appendChild(newCol);
-
+function generateGrid(size) {
     for (let i = 0; i < size; i++) {
+        const newCol = document.createElement("div");
+        newCol.className = "col";
 
-        const newCell = document.createElement("div");
-        newCell.className = "cell";
-        newCol.appendChild(newCell);
+        container.appendChild(newCol);
+
+        for (let i = 0; i < size; i++) {
+
+            const newCell = document.createElement("div");
+            newCell.className = "cell";
+            newCol.appendChild(newCell);
+        }
     }
-}
 };
 
 generateGrid(size);
 
 // Function for event listeners for tracking the mouse movements
 
-function fillCells (){
+function fillCells() {
 
-const cells = document.querySelectorAll(".cell");
+    const cells = document.querySelectorAll(".cell");
 
-cells.forEach((cell) => {
-    cell.addEventListener("mouseenter", (mouseenter) => { mouseenter.target.style.backgroundColor = "black" }
-    )
-}
-);
+    cells.forEach((cell) => {
+        cell.addEventListener("mouseenter", (mouseenter) => { mouseenter.target.style.backgroundColor = "black" }
+        )
+    }
+    );
 }
 
 fillCells();
@@ -40,13 +40,39 @@ fillCells();
 
 const sizeBtn = document.querySelector("button");
 
+function changeSize() {
+
+}
+
 sizeBtn.addEventListener("click", () => {
-    size = prompt("How many rows and columns do you want?", "Enter a number up to 100");
-    
-    if (container) {
-        container.replaceChildren();
+
+    try {
+        let userInput = prompt("How many rows and columns do you want?", "Enter a number up to 100");
+        let number = parseInt(userInput);
+
+        if (isNaN(number) || number > 100) {
+            throw new Error("Invalid input: Only accepts numbers up to 100.")
+        }
+
+        if (container) {
+            container.replaceChildren();
+            size = number;
+            generateGrid(size);
+            fillCells();
+        }
     }
-    
-    generateGrid(size);
-    fillCells();
-})
+
+    catch (error) {
+        alert(error.message);
+    }
+
+
+
+
+}
+)
+
+
+
+
+

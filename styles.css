@@ -1,17 +1,29 @@
 .cell {
     background-color: aquamarine;
     color: blueviolet;
-    min-width: 20px;
-    min-height: 35px;
-    display: flex
+    display: flex;
+    flex: 1 0 20px;
 }
 
 #container {
     display: flex;
+    justify-items: stretch;
+    align-items: stretch;
 }
 
 .col {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-self: stretch;
+    justify-self: stretch;
+    flex-grow: 1 ;
+}
+
+button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 1px;
+    font-weight: bold;
+    background-color: rgb(240, 232, 128);
 }
